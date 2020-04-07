@@ -1,0 +1,35 @@
+{
+  "name": "hbba-api",
+  "version": "1.0.0",
+  "description": "An API for Hope Behind Bars Africa Initiative",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc",
+    "start": "node build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stbensonimoh/hbbafrica-api.git"
+  },
+  "keywords": [
+    "API",
+    "HBBA",
+    "Hope",
+    "Behind",
+    "Bars"
+  ],
+  "author": "Benson Imoh,ST",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stbensonimoh/hbbafrica-api/issues"
+  },
+  "homepage": "https://github.com/stbensonimoh/hbbafrica-api#readme",
+  "devDependencies": {
+    "@types/node": "^13.11.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "http": "0.0.1-security"
+  }
+}
