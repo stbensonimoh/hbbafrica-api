@@ -1,9 +1,10 @@
-import express from "express";
+import express from 'express'
 import bodyParser from "body-parser";
 import fetch from "node-fetch";
 import multer from "multer";
+import { createVolunteer } from '../functions/volunteer'
+const volunteerRoute = express.Router()
 
-const volunteer = express.Router();
 
 // Middlewares
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -12,7 +13,7 @@ const upload = multer()
 
 
 // GET Routes
-volunteer.get('/', (req, res, next) => {
+volunteerRoute.get('/', (req, res, next) => {
   res.json({
     route: "Volunteer Route",
     message: "This is the Volunteer Route, welcome!",
@@ -20,10 +21,6 @@ volunteer.get('/', (req, res, next) => {
 });
 
 // POST Routes
-volunteer.post('/create', upload.none(), (req, res)=> {
-    const formdata = req.body
-    console.log(formdata)
-    res.json(formdata)
-})
+volunteerRoute.post('/create', upload.none(), createVolunteer)
 
-export { volunteer };
+export { volunteerRoute }
