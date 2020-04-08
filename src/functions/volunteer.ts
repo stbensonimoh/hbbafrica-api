@@ -1,7 +1,8 @@
 
 import { Volunteer } from '../models/volunteer'
+import { Request, Response } from "express"
 
-const createVolunteer = (req: any, res: any) => {
+const createVolunteer = (req: Request, res: Response) => {
     const volunteers = new Volunteer(req.body);
     volunteers.save()
     .then(()=> {
@@ -11,7 +12,7 @@ const createVolunteer = (req: any, res: any) => {
     })
     .catch((err: any) => {
         res.status(400).json({
-            error: 'Error creating volunteer'
+            error: `Error creating volunteer ${err}`
         })
     })
 }

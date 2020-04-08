@@ -11,7 +11,7 @@ const createVolunteer = (req, res) => {
     })
         .catch((err) => {
         res.status(400).json({
-            error: 'Error creating volunteer'
+            error: `Error creating volunteer ${err}`
         });
     });
 };
