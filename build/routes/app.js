@@ -5,10 +5,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const multer_1 = __importDefault(require("multer"));
 const volunteer_1 = require("./volunteer");
 const app = express_1.default();
 exports.app = app;
+//Database connection
+const uri = 'mongodb+srv://user1:passAdminDB@hbbafrica-gi7pg.mongodb.net/test?retryWrites=true&w=majority';
+mongoose_1.default.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+    console.log('Successfully connected');
+})
+    .catch((err) => {
+    console.log(`Couldn't connect ${err}`);
+});
 // Middlewares
 const urlencodedParser = body_parser_1.default.urlencoded({ extended: false });
 const jsonParser = body_parser_1.default.json();
