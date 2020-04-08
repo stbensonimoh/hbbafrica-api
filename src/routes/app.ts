@@ -1,15 +1,15 @@
 import express from 'express'
-import bodyParser from 'body-parser'
-import fetch from 'node-fetch'
-import multer from 'multer'
+// import bodyParser from 'body-parser'
+// import fetch from 'node-fetch'
+// import multer from 'multer'
 import { volunteer } from './volunteer'
 
 const app = express()
 
 // Middlewares
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-const jsonParser = bodyParser.json()
-const upload = multer()
+// const urlencodedParser = bodyParser.urlencoded({ extended: false })
+// const jsonParser = bodyParser.json()
+// const upload = multer()
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
