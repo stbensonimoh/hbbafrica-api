@@ -5,14 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const multer_1 = __importDefault(require("multer"));
 const volunteer_1 = require("../functions/volunteer");
 const volunteerRoute = express_1.default.Router();
 exports.volunteerRoute = volunteerRoute;
 // Middlewares
 const urlencodedParser = body_parser_1.default.urlencoded({ extended: false });
 const jsonParser = body_parser_1.default.json();
-const upload = multer_1.default();
+// const upload = multer()
 // GET Routes
 volunteerRoute.get('/', (req, res, next) => {
     res.json({
@@ -21,4 +20,4 @@ volunteerRoute.get('/', (req, res, next) => {
     });
 });
 // POST Routes
-volunteerRoute.post('/create', upload.none(), volunteer_1.createVolunteer);
+volunteerRoute.post('/create', jsonParser, volunteer_1.createVolunteer);

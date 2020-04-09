@@ -9,7 +9,7 @@ const volunteerRoute = express.Router()
 // Middlewares
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json()
-const upload = multer()
+// const upload = multer()
 
 
 // GET Routes
@@ -21,6 +21,6 @@ volunteerRoute.get('/', (req, res, next) => {
 });
 
 // POST Routes
-volunteerRoute.post('/create', upload.none(), createVolunteer)
+volunteerRoute.post('/create', jsonParser, createVolunteer)
 
 export { volunteerRoute }
