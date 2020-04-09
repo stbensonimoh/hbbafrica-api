@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("dotenv").config();
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -12,7 +13,7 @@ const app = express_1.default();
 exports.app = app;
 //Database connection
 // mongoose.Collection('useCreateIndexes', true);
-const uri = 'mongodb+srv://user1:passAdminDB@hbbafrica-gi7pg.mongodb.net/test?retryWrites=true&w=majority';
+const uri = `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASSWORD}@hbbafrica-gi7pg.mongodb.net/test?retryWrites=true&w=majority`;
 mongoose_1.default.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
     console.log('Successfully connected');
