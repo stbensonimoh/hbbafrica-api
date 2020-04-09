@@ -22,6 +22,6 @@ const volunteerSchema = new mongoose_1.Schema({
     preferredSocialMedia: { type: String, required: true, trim: true },
     volunteerUnit: [{ type: String, required: true, trim: true }],
     reasonForVolunteering: { type: String, required: true, trim: true },
-});
+}, { timestamps: true });
 const Volunteer = mongoose_2.default.model('Volunteer', volunteerSchema);
 exports.Volunteer = Volunteer;
