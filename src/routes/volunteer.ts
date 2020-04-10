@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from "body-parser";
-import { createVolunteer } from '../controllers/volunteer'
+import { createVolunteer, findAllVolunteers } from '../controllers/volunteer'
 const volunteerRoute = express.Router()
 
 
@@ -15,6 +15,8 @@ volunteerRoute.get('/', (req, res, next) => {
     message: "This is the Volunteer Route, welcome!",
   });
 });
+
+volunteerRoute.get('/findall', jsonParser, findAllVolunteers)
 
 // POST Routes
 volunteerRoute.post('/create', jsonParser, createVolunteer)

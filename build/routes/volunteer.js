@@ -17,5 +17,6 @@ volunteerRoute.get('/', (req, res, next) => {
         message: "This is the Volunteer Route, welcome!",
     });
 });
+volunteerRoute.get('/findall', jsonParser, volunteer_1.findAllVolunteers);
 // POST Routes
 volunteerRoute.post('/create', jsonParser, volunteer_1.createVolunteer);
