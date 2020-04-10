@@ -1,9 +1,24 @@
 import express from 'express'
+import bodyParser from "body-parser";
+import { createVolunteer, findAllVolunteers } from '../controllers/volunteer'
+const volunteerRoute = express.Router()
 
-const volunteer = express.Router()
 
-volunteer.get('/', (req, res, next)=> {
-    res.json({route: 'Volunteer Route', message: 'This is the Volunteer Route, welcome!'})
-})
+// Middlewares
+const jsonParser = bodyParser.json()
 
-export { volunteer }
+
+// GET Routes
+volunteerRoute.get('/', (req, res, next) => {
+  res.json({
+    route: "Volunteer Route",
+    message: "This is the Volunteer Route, welcome!",
+  });
+});
+
+volunteerRoute.get('/findall', jsonParser, findAllVolunteers)
+
+// POST Routes
+volunteerRoute.post('/create', jsonParser, createVolunteer)
+
+export { volunteerRoute }
