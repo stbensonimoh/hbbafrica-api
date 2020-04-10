@@ -2,7 +2,6 @@ require("dotenv").config();
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
-import fetch from 'node-fetch'
 import multer from 'multer'
 import { volunteerRoute } from './volunteer'
 

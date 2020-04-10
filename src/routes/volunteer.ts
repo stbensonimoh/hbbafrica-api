@@ -1,15 +1,11 @@
 import express from 'express'
 import bodyParser from "body-parser";
-import fetch from "node-fetch";
-import multer from "multer";
-import { createVolunteer } from '../functions/volunteer'
+import { createVolunteer } from '../controllers/volunteer'
 const volunteerRoute = express.Router()
 
 
 // Middlewares
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json()
-// const upload = multer()
 
 
 // GET Routes
