@@ -13,12 +13,10 @@ class NotifyService {
         //add user to mailing list
         newsletter_1.default.addToList(volunteer.firstName, volunteer.lastName, name, volunteer.email, volunteer.phone, "18088");
         //send sms
-        sms_1.default.send("HBBAfrica", volunteer.phone, `Dear ${name},  thank you for volunteering! The team will be so glad to have you join our efforts.
-    A member of our Volunteer Management team shall be in touch with you on the next steps.
-    Cheers,
-    Funke Adeoye
-    Executive Director HBBA
-        `)
+        sms_1.default.send("HBBAfrica", volunteer.phone, `Dear ${name},  thank you for your application! The team will be so glad to have you join our efforts. A member of our Volunteer Management team shall be in touch with you on the next steps.
+      Cheers,
+      Funke Adeoye
+      Executive Director HBBA`)
             .then((res) => res.json())
             .then((results) => console.log(results))
             .catch((err) => console.log(err));

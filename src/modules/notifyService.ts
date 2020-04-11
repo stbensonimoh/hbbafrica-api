@@ -22,12 +22,10 @@ class NotifyService {
     SMS.send(
       "HBBAfrica",
       volunteer.phone,
-      `Dear ${name},  thank you for volunteering! The team will be so glad to have you join our efforts.
-    A member of our Volunteer Management team shall be in touch with you on the next steps.
-    Cheers,
-    Funke Adeoye
-    Executive Director HBBA
-        `
+      `Dear ${name},  thank you for your application! The team will be so glad to have you join our efforts. A member of our Volunteer Management team shall be in touch with you on the next steps.
+      Cheers,
+      Funke Adeoye
+      Executive Director HBBA`
     )
       .then((res: Response) => res.json())
       .then((results: Response) => console.log(results))
