@@ -9,14 +9,16 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const multer_1 = __importDefault(require("multer"));
 const volunteer_1 = require("./volunteer");
+const course_1 = require("./course");
 const app = express_1.default();
 exports.app = app;
 //Database connection
 // mongoose.Collection('useCreateIndexes', true);
 const uri = `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASSWORD}@hbbafrica-gi7pg.mongodb.net/test?retryWrites=true&w=majority`;
-mongoose_1.default.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose_1.default
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-    console.log('Successfully connected');
+    console.log("Successfully connected");
 })
     .catch((err) => {
     console.log(`Couldn't connect ${err}`);
@@ -31,8 +33,9 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
     next();
 });
-app.use('/volunteer', volunteer_1.volunteerRoute);
+app.use("/volunteer", volunteer_1.volunteerRoute);
+app.use("/course", course_1.courseRoute);
 // GET ROUTES
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
     res.json({ name: "Benson", message: "This is working eh?" });
 });
