@@ -19,16 +19,16 @@ class NotifyService {
     );
 
     //send sms
-    SMS.send(
-      "HBBAfrica",
-      applicant.phone,
-      `Dear ${name}, thank you for taking the time to apply for the Short Course On Capital Representation for Law students and Young Lawyers. We have received your application and are currently reviewing it. All applicants will receive a decision on their applications in July. In the meantime, if you have any questions, you may contact us via email. Best Wishes,
-      The Access to Justice Team,
-      Hope behind Bars Africa.`
-    )
-      .then((res: Response) => res.json())
-      .then((results: Response) => console.log(results))
-      .catch((err: Error) => console.log(err));
+    // SMS.send(
+    //   "HBBAfrica",
+    //   applicant.phone,
+    //   `Dear ${name}, thank you for taking the time to apply for the Short Course On Capital Representation for Law students and Young Lawyers. We have received your application and are currently reviewing it. All applicants will receive a decision on their applications in July. In the meantime, if you have any questions, you may contact us via email. Best Wishes,
+    //   The Access to Justice Team,
+    //   Hope behind Bars Africa.`
+    // )
+    //   .then((res: Response) => res.json())
+    //   .then((results: Response) => console.log(results))
+    //   .catch((err: Error) => console.log(err));
 
     //send email
     Email.sendWithoutAttachment(
